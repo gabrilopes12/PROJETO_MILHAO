@@ -1,8 +1,11 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import { Volume2 } from 'lucide-react-native';
+import { useRouter } from 'expo-router';
 
 export default function HistoricoScreen() {
+  const router = useRouter();
+
   return (
     <View style={styles.container}>
       {/* Ícone de som */}
@@ -33,7 +36,7 @@ export default function HistoricoScreen() {
             <Text style={styles.attemptText}>Tentativa1: R$:xxx.xx</Text>
             <Text style={styles.attemptText}>Tentativa2: R$:xxx.xx</Text>
             <Text style={styles.attemptText}>Tentativa3: R$:xxx.xx</Text>
-            {/* Você pode adicionar mais tentativas aqui */}
+            {/* Adicione mais tentativas conforme necessário */}
           </ScrollView>
         </View>
 
@@ -43,6 +46,11 @@ export default function HistoricoScreen() {
           ))}
         </View>
       </View>
+
+      {/* Botão de Voltar ao Início */}
+      <TouchableOpacity style={styles.backButton} onPress={() => router.push('/')}>
+        <Text style={styles.backButtonText}>Voltar ao Início</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -124,5 +132,17 @@ const styles = StyleSheet.create({
   attemptText: {
     fontSize: 16,
     marginVertical: 5,
+  },
+  backButton: {
+    marginTop: 20,
+    backgroundColor: 'gold',
+    paddingVertical: 12,
+    paddingHorizontal: 30,
+    borderRadius: 25,
+  },
+  backButtonText: {
+    color: '#6b0d0d',
+    fontWeight: 'bold',
+    fontSize: 16,
   },
 });

@@ -6,7 +6,7 @@ const StartScreen: React.FC = () => {
   const router = useRouter();
 
   const handleStart = () => {
-    router.push('/(tabs)/jogo');
+    router.push('/(tabs)/login/');
   };
 
   const handleHistory = () => {

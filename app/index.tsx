@@ -1,87 +1,94 @@
-import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
 import { useRouter } from 'expo-router';
+import React, { useState } from 'react';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, ImageBackground, Image } from 'react-native';
+const router = useRouter();
 
-const StartScreen: React.FC = () => {
-  const router = useRouter();
+export default function App() {
+  const [nickname, setNickname] = useState('');
+  const [senha, setSenha] = useState('');
 
-  const handleStart = () => {
-    router.push('/(tabs)/login/');
-  };
-
-  const handleHistory = () => {
-    router.push('/(tabs)/historico');
+  const handleCadastro = () => {
+    // Aqui você pode colocar a lógica de cadastro
+    console.log('Nickname:', nickname);
+    console.log('Senha:', senha);
+    router.push('/(tabs)/home/');
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.contentBox}>
-        <Text style={styles.title}>Quiz do Milhão</Text>
-        <Text style={styles.subtitle}>Teste seus conhecimentos e ganhe milhares!</Text>
-        <TouchableOpacity style={styles.button} onPress={handleStart}>
-          <Text style={styles.buttonText}>Começar Jogo</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={handleHistory}>
-          <Text style={styles.buttonText}>Histórico</Text>
+    <ImageBackground
+      source={require('../assets/images/icon.png')} // Substitua pela imagem que você tem
+      style={styles.container}
+      resizeMode="cover"
+    >
+      <View style={styles.overlay}>
+        <Text style={styles.title}>POLIEDRO{"\n"}DO MILHÃO</Text>
+        <Image source={require('../assets/images/icon.png')} style={styles.coin} />
+        
+        <TextInput
+          style={styles.input}
+          placeholder="Nickname:"
+          placeholderTextColor="#fff"
+          onChangeText={setNickname}
+          value={nickname}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Senha:"
+          placeholderTextColor="#fff"
+          secureTextEntry
+          onChangeText={setSenha}
+          value={senha}
+        />
+        <TouchableOpacity style={styles.button} onPress={handleCadastro}>
+          <Text style={styles.buttonText}>Cadastrar</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </ImageBackground>
   );
-};
-
-const { width } = Dimensions.get('window');
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#1e1e2f',
+  },
+  overlay: {
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 20,
-  },
-  contentBox: {
-    backgroundColor: '#2e2e40',
-    padding: 30,
-    borderRadius: 20,
-    width: '100%',
-    alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3,
-    shadowRadius: 6,
-    elevation: 6,
+    paddingHorizontal: 20,
+    backgroundColor: 'rgba(0,0,0,0.4)',
   },
   title: {
-    fontSize: 36,
+    fontSize: 28,
     fontWeight: 'bold',
-    color: '#ffd700',
-    marginBottom: 15,
     textAlign: 'center',
+    color: '#FFD700',
+    marginBottom: 10,
   },
-  subtitle: {
-    fontSize: 18,
-    color: '#ddd',
-    marginBottom: 40,
+  coin: {
+    width: 80,
+    height: 80,
+    marginBottom: 30,
+  },
+  input: {
+    backgroundColor: '#E63946',
+    width: '80%',
+    padding: 12,
+    borderRadius: 25,
+    marginVertical: 8,
+    color: 'white',
     textAlign: 'center',
-    paddingHorizontal: 20,
+    fontWeight: 'bold',
   },
   button: {
-    backgroundColor: '#ffd700',
-    paddingVertical: 15,
-    paddingHorizontal: 60,
-    borderRadius: 30,
-    elevation: 5,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 3 },
-    shadowOpacity: 0.3,
-    shadowRadius: 4,
-    marginBottom: 20,
+    backgroundColor: 'white',
+    paddingVertical: 12,
+    paddingHorizontal: 30,
+    borderRadius: 20,
+    marginTop: 10,
   },
   buttonText: {
-    color: '#1e1e2f',
-    fontSize: 20,
+    color: '#1d3557',
     fontWeight: 'bold',
   },
 });
-
-export default StartScreen;

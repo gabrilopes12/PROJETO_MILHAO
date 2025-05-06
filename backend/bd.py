@@ -13,7 +13,7 @@ def setup_database():
         );
     ''')
 
-    # Tabela questões
+    # Tabela questões com resposta correta
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS questoes (
             ID_questao INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -22,6 +22,7 @@ def setup_database():
             alternativaB TEXT NOT NULL,
             alternativaC TEXT NOT NULL,
             alternativaD TEXT NOT NULL,
+            resposta_correta CHAR(1) NOT NULL,
             dica TEXT,
             valor INTEGER,
             nivel_dificuldade TEXT

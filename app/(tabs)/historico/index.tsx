@@ -48,7 +48,7 @@ export default function HistoricoScreen() {
       </View>
 
       {/* Botão de Voltar ao Início */}
-      <TouchableOpacity style={styles.backButton} onPress={() => router.push('/')}>
+      <TouchableOpacity style={styles.backButton} onPress={() => router.push('/home/')}>
         <Text style={styles.backButtonText}>Voltar ao Início</Text>
       </TouchableOpacity>
     </View>

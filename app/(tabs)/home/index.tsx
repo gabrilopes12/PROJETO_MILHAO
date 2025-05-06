@@ -6,7 +6,7 @@ const StartScreen: React.FC = () => {
   const router = useRouter();
 
   const handleStart = () => {
-    // router.push('/(tabs)/login/');
+    router.push('/(tabs)/tela_jogo//');
   };
 
   const handleHistory = () => {
@@ -28,6 +28,7 @@ const StartScreen: React.FC = () => {
     </View>
   );
 };
+
 
 const { width } = Dimensions.get('window');
 
@@ -66,7 +67,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   button: {
-    backgroundColor: '#ffd700',
+    backgroundColor: '#d5241c',
     paddingVertical: 15,
     paddingHorizontal: 60,
     borderRadius: 30,
@@ -78,7 +79,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   buttonText: {
-    color: '#1e1e2f',
+    color: '#ffffff',
     fontSize: 20,
     fontWeight: 'bold',
   },

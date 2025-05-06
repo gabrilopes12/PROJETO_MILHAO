@@ -1,4 +1,5 @@
 import { useRouter } from 'expo-router';
+import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, ImageBackground, Image } from 'react-native';
 const router = useRouter();
@@ -22,7 +23,7 @@ export default function App() {
     >
       <View style={styles.overlay}>
         <Text style={styles.title}>POLIEDRO{"\n"}DO MILHÃO</Text>
-        <Image source={require('../assets/images/icon.png')} style={styles.coin} />
+        <Image source={require('../assets/images/Coin.png')} style={styles.coin} />
         
         <TextInput
           style={styles.input}
@@ -50,13 +51,15 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    width: 'auto',
+    height: 'auto',
   },
   overlay: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 20,
-    backgroundColor: 'rgba(0,0,0,0.4)',
+    // backgroundColor: 'rgba(0,0,0,0.4)',
   },
   title: {
     fontSize: 28,
@@ -71,8 +74,8 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
   input: {
-    backgroundColor: '#E63946',
-    width: '80%',
+    backgroundColor: '#d5241c',
+    width: '25%',
     padding: 12,
     borderRadius: 25,
     marginVertical: 8,

@@ -30,3 +30,4 @@ def buscar_questao_por_id(id_questao):
     questao = cursor.fetchone()
     conn.close()
     return questao
+
